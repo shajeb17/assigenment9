@@ -25,7 +25,7 @@ const NavBar = () => {
 
 
         <div className="flex items-center gap-2 cursor-pointer">
-           <Link className="btn btn-primary font-bold text-[15px]">LogIn</Link>
+           <Link to={"/pagelayout"} className="btn btn-primary font-bold text-[15px]">LogIn</Link>
         </div>
       </nav>
     </div>

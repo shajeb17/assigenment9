@@ -1,0 +1,66 @@
+import React from "react";
+import { Link } from "react-router";
+import Footer from "../component/Footer";
+import NavBar from "../component/NavBar";
+
+const RegisterForm = () => {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <NavBar></NavBar>
+      <div className="flex-1">
+        <div className="m-auto flex items-center justify-center w-full h-screen ">
+          <div className="card  max-w-sm shrink-0 shadow-2xl">
+            <div className="card-body m-auto flex items-center justify-center">
+              <form>
+                <h1 className="capitalize text-[18px] mb-5">
+                  Please a create account
+                </h1>
+                <label className="label text-white">Name</label>
+                <input
+                  type="text"
+                  className="input  outline-0 "
+                  placeholder="Your Name"
+                />
+
+                <label className="label text-white">Image</label>
+                <input
+                  type="text"
+                  className="input  outline-0 "
+                  placeholder="image link"
+                />
+
+                <label className="label text-white">Email</label>
+                <input
+                  type="email"
+                  className="input  outline-0 "
+                  placeholder="Email"
+                />
+                <label className="label text-white">Password</label>
+                <input
+                  type="password"
+                  className="input  outline-0 "
+                  placeholder="Password"
+                />
+                <div className="mt-3">
+                  <a className="link link-hover">Forgot password?</a>
+                </div>
+                <button className="btn btn-secondary mt-4 w-full">
+                  Register
+                </button>
+                <p className="mt-4 text-yellow-200">
+                  Opps! i Have a Account?{" "}
+                  <Link to={"/pagelayout"} className="text-blue-400">
+                    Please Login
+                  </Link>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer></Footer>
+    </div>
+  );
+};
+
+export default RegisterForm;
