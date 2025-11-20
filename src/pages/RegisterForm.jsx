@@ -1,9 +1,30 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
 import Footer from "../component/Footer";
 import NavBar from "../component/NavBar";
+import { AuthContext } from "../uesContextHook/formhook/AuthContex";
+import { updateProfile } from "firebase/auth";
 
 const RegisterForm = () => {
+  let { handleRegister } = use(AuthContext);
+
+  let handleClick = (e) => {
+    e.preventDefault();
+    let email = e.target.email.value;
+    let password = e.target.password.value;
+
+    let text = e.target.text.value;
+    let image = e.target.image.value;
+
+    let prifile = {
+      text,
+      image,
+    };
+    handleRegister(email, password)
+      .then((result) => updateProfile(result.user, prifile))
+      .catch((e) => console.log(e));
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar></NavBar>
@@ -11,7 +32,7 @@ const RegisterForm = () => {
         <div className="m-auto flex items-center justify-center w-full h-screen ">
           <div className="card  max-w-sm shrink-0 shadow-2xl">
             <div className="card-body m-auto flex items-center justify-center">
-              <form>
+              <form onSubmit={handleClick}>
                 <h1 className="capitalize text-[18px] mb-5">
                   Please a create account
                 </h1>
@@ -20,12 +41,14 @@ const RegisterForm = () => {
                   type="text"
                   className="input  outline-0 "
                   placeholder="Your Name"
+                  name="text"
                 />
 
                 <label className="label text-white">Image</label>
                 <input
                   type="text"
                   className="input  outline-0 "
+                  name="image"
                   placeholder="image link"
                 />
 
@@ -33,12 +56,14 @@ const RegisterForm = () => {
                 <input
                   type="email"
                   className="input  outline-0 "
+                  name="email"
                   placeholder="Email"
                 />
                 <label className="label text-white">Password</label>
                 <input
                   type="password"
                   className="input  outline-0 "
+                  name="password"
                   placeholder="Password"
                 />
                 <div className="mt-3">

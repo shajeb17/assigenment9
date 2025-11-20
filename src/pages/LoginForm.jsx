@@ -1,14 +1,25 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../uesContextHook/formhook/AuthContex";
 
 const LoginForm = () => {
+  let {handleSinin}=use(AuthContext)
+  let handleClick = (e) => {
+    e.preventDefault();
+    let email = e.target.email.value;
+    let password = e.target.password.value;
+    handleSinin(email,password)
+    .then(result=>console.log(result)
+    )
+    
+  };
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
-            <form>
-                <h1 className="text-[22px] font-semibold mb-4">Please Login</h1>
+            <form onSubmit={handleClick}>
+              <h1 className="text-[22px] font-semibold mb-4">Please Login</h1>
               <label className="label">Email</label>
               <input
                 type="email"
