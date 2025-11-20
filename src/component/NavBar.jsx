@@ -10,7 +10,7 @@ const NavBar = () => {
   let handleClick = () => {
     handleSignout();
   };
-  console.log(userInfo);
+
 
   return (
     <div>

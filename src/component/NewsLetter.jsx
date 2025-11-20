@@ -9,9 +9,7 @@ const NewsLetter = () => {
       </div>
       <div className="flex-1">
         <div className="p-8  w-full  bg-blue-400 text-white">
-          <div className="btn btn-primary mb-1.5">
-            Our Newsletter
-          </div>
+          <div className="btn btn-primary mb-1.5">Our Newsletter</div>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-6">
             Subscribe to our newsletter to receive updates
@@ -22,7 +20,6 @@ const NewsLetter = () => {
               type="email"
               placeholder="Enter your email"
               className="bg-white p-3  text-gray-900 "
-           
             />
 
             <button
