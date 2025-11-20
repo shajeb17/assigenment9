@@ -5,6 +5,6 @@ export const router = createBrowserRouter([
     
   {
     path: "/",
-    Component: MainLayout,
+    element: <MainLayout></MainLayout>,
   },
 ]);
