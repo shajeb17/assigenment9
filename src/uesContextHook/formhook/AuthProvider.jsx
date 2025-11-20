@@ -17,7 +17,7 @@ const AuthProvider = ({children}) => {
         return createUserWithEmailAndPassword(auth, email,password)
     }
     let handleSignout=()=>{
-        return signOut()
+        return signOut(auth)
     }
     let handleSigninGoogle=()=>{
         return signInWithPopup(auth,provider)

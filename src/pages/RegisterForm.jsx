@@ -17,8 +17,8 @@ const RegisterForm = () => {
     let image = e.target.image.value;
 
     let prifile = {
-      text,
-      image,
+      displayName: text,
+      photoURL: image,
     };
     handleRegister(email, password)
       .then((result) => updateProfile(result.user, prifile))
