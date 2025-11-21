@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router";
 import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
@@ -15,7 +15,9 @@ const GameDetails = () => {
     category,
     reviews,
   } = addData;
-
+    useEffect(() => {
+      document.title = "Gamehub :GameDetails";
+    }, []);
   return (
     <div className="flex flex-col min-h-screen">
        <NavBar></NavBar>
@@ -34,7 +36,7 @@ const GameDetails = () => {
 
         <div className="mb-6 rounded-xl overflow-hidden shadow-xl">
           <img
-            src={coverPhoto}
+            src="my url dont work"
             alt="Game Screenshot"
             className="w-full h-auto object-cover"
           />

@@ -8,16 +8,15 @@ import useGamming from "../hooks/useGamming";
 import GammingCard from "../pages/GammingCard";
 
 const MainLayout = () => {
-  let { data, loadding } = useGamming();
+  let { data } = useGamming();
   let [fdata, setfdata] = useState();
-useEffect(() => {
-  if (data?.data) {
-    const myData = data.data.filter((all) => parseFloat(all.ratings) > 4.5);
-    setfdata(myData.slice(0,3));
-  }
-}, [data]);
+  useEffect(() => {
+    if (data?.data) {
+      const myData = data.data.filter((all) => parseFloat(all.ratings) > 4.5);
+      setfdata(myData.slice(0, 3));
+    }
+  }, [data]);
 
- 
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar></NavBar>
@@ -25,7 +24,7 @@ useEffect(() => {
       <div className="flex-1">
         <Outlet></Outlet>
       </div>
-      <div className="grid grid-cols-3 gap-3.5 w-10/12 m-auto py-15">
+      <div className="grid grid-cols-3 gap-3.5 w-10/12 m-auto py-15 max-[1100px]:grid-cols-2 max-[750px]:grid-cols-1">
         {fdata?.map((myData) => (
           <GammingCard key={myData.id} myData={myData}></GammingCard>
         ))}

@@ -14,19 +14,19 @@ const NavBar = () => {
 
   return (
     <div>
-      <nav className="bg-gray-900 text-white px-8 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-1">
+      <nav className="bg-gray-900 text-white px-8 py-4 flex items-center justify-between max-[520px]:flex-col">
+        <Link to={"/"} className="flex items-center gap-1">
           <div className="text-2xl">
             <IoGameController></IoGameController>
           </div>
           <span className="font-bold text-xl">Gamehub</span>
-        </div>
+        </Link>
 
         <div className="flex gap-6 text-gray-300">
-          <NavLink href="/" className="hover:text-white">
+          <NavLink to="/" className="hover:text-white">
             Home
           </NavLink>
-          <NavLink href="/browse" className="hover:text-white">
+          <NavLink to="/browse" className="hover:text-white">
             Browse Games
           </NavLink>
         </div>

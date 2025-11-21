@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useEffect } from "react";
 import { Link } from "react-router";
 import Footer from "../component/Footer";
 import NavBar from "../component/NavBar";
@@ -7,7 +7,9 @@ import { updateProfile } from "firebase/auth";
 
 const RegisterForm = () => {
   let { handleRegister } = use(AuthContext);
-
+       useEffect(() => {
+         document.title = "Gamehub :RegistePage";
+       }, []);
   let handleClick = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
@@ -15,6 +17,13 @@ const RegisterForm = () => {
 
     let text = e.target.text.value;
     let image = e.target.image.value;
+    let expression =/^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+    if (!expression.test(password)) {
+      alert(
+        "❌ Password must have 1 uppercase, 1 lowercase and be at least 6 characters long."
+      );
+      return;
+    }
 
     let prifile = {
       displayName: text,

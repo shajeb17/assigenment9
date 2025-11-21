@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LoginForm from "../pages/LoginForm";
 import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
 
 const PageLayout = () => {
+      useEffect(() => {
+        document.title = "Gamehub :LoginForm";
+      }, []);
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar></NavBar>

@@ -3,8 +3,8 @@ import { FaNewspaper } from "react-icons/fa";
 
 const NewsLetter = () => {
   return (
-    <div className="flex w-10/12 m-auto items-center bg-black/30">
-      <div className="flex-1 ml-15 text-center text-[300px]">
+    <div className="flex w-10/12 m-auto items-center bg-black/30 max-[900px]:flex-col">
+      <div className="flex-1 ml-15 text-center text-[300px] max-[600px]:hidden">
         <FaNewspaper></FaNewspaper>
       </div>
       <div className="flex-1">
