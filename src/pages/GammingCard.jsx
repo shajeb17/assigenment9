@@ -2,12 +2,11 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import { FaDownLong } from "react-icons/fa6";
 import { IoChatbubbleSharp } from "react-icons/io5";
+import { Link } from "react-router";
 
 const GammingCard = ({ myData }) => {
   let {
     title,
-    coverPhoto,
-    category,
     downloadLink,
     description,
     ratings,
@@ -15,7 +14,8 @@ const GammingCard = ({ myData }) => {
     downloads,
     reviews
   } = myData;
-  console.log(title);
+ 
+
   
   return (
     <div className="bg-white p-6 rounded-3xl shadow-2xl w-full max-w-xl mx-auto border border-gray-100">
@@ -23,7 +23,7 @@ const GammingCard = ({ myData }) => {
       <div className="flex  space-x-2 mb-6">
         <div className="w-10 h-10 bg-yellow-400   rounded-full  overflow-hidden   ">
           <img
-            src={coverPhoto}
+            src="the url dont work"
             alt="PUBG App Icon"
             className="w-full h-full object-cover"
           />
@@ -43,7 +43,7 @@ const GammingCard = ({ myData }) => {
      
       <div className="mb-6 rounded-xl overflow-hidden shadow-xl">
         <img
-          src={coverPhoto }
+          src="the url dont work"
           alt="Main game screenshot"
           className="w-full h-auto object-cover"
         />
@@ -87,9 +87,9 @@ const GammingCard = ({ myData }) => {
 
 
       <div className="flex gap-4">
-        <button className="btn btn-primary rounded-2xl">
-          Add to Wishlist
-        </button>
+        <Link to={"gamedetails"} state={myData} className="btn btn-primary rounded-2xl">
+          More Details
+        </Link>
 
         <a
           href={downloadLink}
