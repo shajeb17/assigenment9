@@ -4,9 +4,9 @@ import NavBar from "../component/NavBar";
 import Footer from "../component/Footer";
 
 const PageLayout = () => {
-      useEffect(() => {
-        document.title = "Gamehub :LoginForm";
-      }, []);
+  useEffect(() => {
+    document.title = "Gamehub :LoginForm";
+  }, []);
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar></NavBar>

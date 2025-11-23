@@ -11,7 +11,7 @@ const NavBar = () => {
     handleSignout();
   };
 
-
+  
   return (
     <div>
       <nav className="bg-gray-900 text-white px-8 py-4 flex items-center justify-between max-[520px]:flex-col">
@@ -43,8 +43,9 @@ const NavBar = () => {
                   className="dropdown-content menu rounded-box z-1 mt-5 w-[200px] ml-[-50px] bg-black/80 p-2 shadow-sm text-white"
                 >
                  <div>
-                    <div className="flex">  My Name :{userInfo?.displayName}</div>
+                    <div className="flex">   Name :{userInfo?.displayName}</div>
                     <div className="flex">  Email :{userInfo?.email}</div>
+                    <Link to={"/updateInfo"} className="btn btn-secondary mt-3">Update Information</Link>
                  </div>
                 </ul>
               </div>

@@ -1,9 +1,10 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../uesContextHook/formhook/AuthContex";
 
 const LoginForm = () => {
-  let { handleSinin,handleSigninGoogle } = use(AuthContext);
+  let { handleSinin, handleSigninGoogle } = use(AuthContext);
+  let [email, setEmail] = useState();
   let handleClick = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
@@ -11,12 +12,12 @@ const LoginForm = () => {
     handleSinin(email, password).then((result) => console.log(result));
   };
 
-  let handleGoogle=()=>{
-     handleSigninGoogle()
-     .then(result=>console.log(result)
-     ).catch(e=>console.log(e)
-     )
-  }
+  let handleGoogle = () => {
+    handleSigninGoogle()
+      // .then((result) => console.log(result))
+      // .catch((e) => console.log(e));
+  };
+
   return (
     <div>
       <div className="hero bg-base-200 min-h-screen">
@@ -30,6 +31,7 @@ const LoginForm = () => {
                 className="input bg-black/10 outline-0 "
                 name="email"
                 placeholder="Email"
+                onChange={(e) => setEmail(e.target.value)}
               />
               <label className="label">Password</label>
               <input
@@ -39,10 +41,19 @@ const LoginForm = () => {
                 placeholder="Password"
               />
               <div>
-                <a className="link link-hover">Forgot password?</a>
+                <Link
+                  to={"/passwordreset"}
+                  state={{ email }}
+                  className="link link-hover"
+                >
+                  Forgot password?
+                </Link>
               </div>
               <button className="btn btn-primary mt-4 w-full">Login</button>
-              <button onClick={handleGoogle} className="btn bg-white text-black w-full mt-3 border-[#e5e5e5]">
+              <button
+                onClick={handleGoogle}
+                className="btn bg-white text-black w-full mt-3 border-[#e5e5e5]"
+              >
                 <svg
                   aria-label="Google logo"
                   width="16"
